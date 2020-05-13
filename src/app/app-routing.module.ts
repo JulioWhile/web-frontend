@@ -5,8 +5,8 @@ import { TiendasComponent } from './components/tiendas/tiendas.component';
 
 
 const routes: Routes = [
-  { path: '/', component: HomeComponent },
-  { path: '/tiendas', component: TiendasComponent},
+  { path: 'home', component: HomeComponent },
+  { path: 'tiendas', component: TiendasComponent},
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
