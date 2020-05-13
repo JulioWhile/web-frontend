@@ -84,3 +84,8 @@ h1 {
 .btn:hover {
     transform: scale(0.98);
 }
+
+
+ul > li {
+    list-style: none;
+}

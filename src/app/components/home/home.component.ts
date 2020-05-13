@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ComputadorasService } from 'src/app/services/computadoras.service';
+import { Compus } from 'src/app/models/Computadora';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  computadoras: Compus[] = [];
+  constructor(private cpuService: ComputadorasService) { }
 
   ngOnInit(): void {
+    this.cpuService.getComputadoras().subscribe(cpu => {
+      cpu.compus.forEach(element => {
+        this.computadoras.push(element);
+        console.log(element);
+      });
+    });
   }
 
 }
