@@ -24,15 +24,29 @@ export class CrudTiendasComponent implements OnInit {
     });
   }
 
-  deleteTienda(tienda: Tienda) {
+  deleteTienda(idTienda: string) {
     // AQUÍ SE LLAMA AL SERVICIO PARA ELIMINAR LA TIENDA
     // this.tiendas = this.tiendas.filter(t => t._id != tienda._id);
-    console.log(`Tienda eliminada en crud-tiendas: ${tienda._id}`);
-    this.servicioTienda.deleteTienda(tienda).subscribe((t)=>{
+    console.log(`Tienda eliminada en crud-tiendas: ${idTienda}`);
+    this.servicioTienda.deleteTienda(idTienda).subscribe((t)=>{
       console.log(`Tienda eliminada: ${t._id}`);
       this.getTiendas();
     });
+  }
 
+  updateTienda(tiendaNueva: Tienda) {
+
+  }
+
+  obtenDatosTienda(tiendaVieja: Tienda) {
+    
+  }
+
+  addTienda(tienda: Tienda){
+    this.servicioTienda.addTienda(tienda).subscribe(ti=>{
+      console.log('Tienda añadida.' );
+      // this.getTiendas();
+    })
   }
 
 

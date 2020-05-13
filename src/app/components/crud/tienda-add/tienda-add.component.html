@@ -1,1 +1,6 @@
-<p>tienda-add works!</p>
+<form class="form" (ngSubmit)="onSubmit()">
+    <input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Nombre">
+    <input type="text" name="logo" [(ngModel)]="logo" placeholder="URL Logo">
+    <input type="text" name="ubicacion" [(ngModel)]="ubicacion" placeholder="Ubicación">
+    <input type="submit" value="Add">
+</form>

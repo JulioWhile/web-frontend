@@ -24,9 +24,9 @@ export class TiendasService {
     return this.http.get<Tienda[]>(this.tiendasURL, httpOptions);
   }
 
-  deleteTienda(tienda: Tienda): Observable<Tienda> {
-    console.log("se elimina la tienda " + tienda._id);
-    return this.http.delete<Tienda>(`${this.tiendasURL}/${tienda._id}`, httpOptions);
+  deleteTienda(id: string): Observable<Tienda> {
+    console.log("se elimina la tienda " + id);
+    return this.http.delete<Tienda>(`${this.tiendasURL}/${id}`, httpOptions);
   }
 
   updateTienda(tienda: Tienda): Observable<Tienda> {

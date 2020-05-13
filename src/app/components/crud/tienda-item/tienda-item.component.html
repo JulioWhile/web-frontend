@@ -5,6 +5,7 @@
     <div class="card-body">
         <h5 class="card-title">{{ tienda.nombre }}</h5>
         <p class="card-text">Ubicado en {{ tienda.ubicacion }}</p>
-        <button (click)="onDelete(tienda)" class="btn btn-danger">Eliminar</button>
+        <button (click)="onUpdate(tienda)" class="btn btn-danger">Editar</button>
+        <button (click)="onDelete(tienda._id)" class="btn btn-danger">Eliminar</button>
     </div>
 </div>

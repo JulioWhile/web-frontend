@@ -9,16 +9,21 @@ import { Tienda } from 'src/app/models/Tienda';
 })
 export class TiendaItemComponent implements OnInit {
   @Input() tienda: Tienda;
-  @Output() deleteTienda: EventEmitter<Tienda> = new EventEmitter();
+  @Output() deleteTienda: EventEmitter<string> = new EventEmitter();
+  @Output() updateTienda: EventEmitter<string> = new EventEmitter();
 
   constructor(private servicioTienda: TiendasService) { }
 
   ngOnInit(): void {
   }
 
-  onDelete(tienda: Tienda) {
-    this.deleteTienda.emit(tienda);
-    console.log("se le hizo click al a tienda " + tienda._id);
+  onDelete(idTienda: string) {
+    this.deleteTienda.emit(idTienda);
+    console.log("se le hizo click al a tienda " + idTienda);
+  }
+
+  onUpdate(tienda: Tienda) {
+
   }
 
 }
