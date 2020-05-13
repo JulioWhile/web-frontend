@@ -1,4 +1,5 @@
 export class Computadora {
+    _id: string;
     imagen: string;
     gabinete: string;
     ram: string;
