@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
     this.cpuService.getComputadoras().subscribe(cpu => {
       cpu.compus.forEach(element => {
         this.computadoras.push(element);
-        console.log(element);
       });
     });
   }

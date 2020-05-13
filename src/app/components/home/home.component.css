@@ -89,3 +89,8 @@ h1 {
 ul > li {
     list-style: none;
 }
+
+.card-title {
+    text-align: center;
+    margin: 10px;
+}
