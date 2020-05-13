@@ -1,1 +1,14 @@
-<p>crud-tiendas works!</p>
+<div class="container">
+    <p>Este es el CRUD de tiendas</p>
+    <app-tienda-add></app-tienda-add>
+    <p>Tiendas añadidas: </p>
+    <div class="card-deck justify-content-center">
+        <app-tienda-item 
+        *ngFor="let tienda of tiendas" 
+        [tienda]="tienda"
+        (deleteTienda)="deleteTienda($event)"
+        >
+        </app-tienda-item>
+    </div>
+
+</div>
