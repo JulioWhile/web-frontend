@@ -1,1 +1,10 @@
-<p>tienda-item works!</p>
+<div class="card text-center mb-5" style="width: 18rem;">
+    <div class="m-3">
+        <img class="card-img-top" src="{{ tienda.logo }}" alt="Card image cap">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ tienda.nombre }}</h5>
+        <p class="card-text">Ubicado en {{ tienda.ubicacion }}</p>
+        <button (click)="onDelete(tienda)" class="btn btn-danger">Eliminar</button>
+    </div>
+</div>
