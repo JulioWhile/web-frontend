@@ -1,6 +1,51 @@
-<form class="form" (ngSubmit)="onSubmit()">
-    <input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Nombre">
-    <input type="text" name="logo" [(ngModel)]="logo" placeholder="URL Logo">
-    <input type="text" name="ubicacion" [(ngModel)]="ubicacion" placeholder="Ubicación">
-    <input type="submit" value="Add">
-</form>
+<div class="container mt-5 mb-5">
+  <h3>Editar {{ nombreTienda }}</h3>
+  <form action="">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #url
+        type="text"
+        class="form-control"
+        placeholder="Url Foto"
+        aria-label="Url Foto"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #nombre
+        type="text"
+        class="form-control"
+        placeholder="Nombre Tienda"
+        aria-label="Nombre Tienda"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #ubicacion
+        type="text"
+        class="form-control"
+        placeholder="Ubicacion"
+        aria-label="Ubicacion"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary btn-lg btn-block"
+      (click)="edit(url.value, nombre.value, ubicacion.value)"
+    >
+      Editar
+    </button>
+  </form>
+</div>

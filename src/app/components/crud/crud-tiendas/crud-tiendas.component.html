@@ -1,17 +1,91 @@
-<div class="container">
-    <p>Este es el CRUD de tiendas</p>
+<div class="container mt-5 mb-5">
+  <h3>Tiendas Disponibles</h3>
 
-    <app-tienda-add (addTienda)="addTienda($event)"></app-tienda-add>
-    
-    <p>Tiendas añadidas: </p>
-    <div class="card-deck justify-content-center">
-        <app-tienda-item 
-        *ngFor="let tienda of tiendas" 
-        [tienda]="tienda"
-        (deleteTienda)="deleteTienda($event)"
-        (updateTienda)="obtenDatosTienda($event)"
-        >
-        </app-tienda-item>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Ubicación</th>
+        <th scope="col">Botones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tienda of tiendas; let i = index">
+        <th scope="row">{{ i }}</th>
+        <td>{{ tienda.nombre }}</td>
+        <td>{{ tienda.ubicacion }}</td>
+        <td>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="update(tienda._id)"
+            >
+              Editar
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="delete(tienda._id)"
+            >
+              Eliminar
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container mt-5 mb-5">
+  <h3>Agregar Tienda</h3>
+  <form action="">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #url
+        type="text"
+        class="form-control"
+        placeholder="Url Foto"
+        aria-label="Url Foto"
+        aria-describedby="basic-addon1"
+      />
     </div>
-
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #nombre
+        type="text"
+        class="form-control"
+        placeholder="Nombre Tienda"
+        aria-label="Nombre Tienda"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #ubicacion
+        type="text"
+        class="form-control"
+        placeholder="Ubicacion"
+        aria-label="Ubicacion"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary btn-lg btn-block"
+      (click)="add(url.value, nombre.value, ubicacion.value)"
+    >
+      Agregar
+    </button>
+  </form>
 </div>

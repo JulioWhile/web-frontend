@@ -1,40 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Tienda, Tiend } from 'src/app/models/Tienda';
 
-import { Tienda } from 'src/app/models/Tienda';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json; charset=utf-8'
-  })
-}
+const url = 'http://localhost:3000/tiendas/';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-
 export class TiendasService {
-  tiendasURL: string = "http://localhost:3000/tiendas";
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getTiendas(): Observable<Tienda[]> {
-    return this.http.get<Tienda[]>(this.tiendasURL, httpOptions);
+  getTiendas() {
+    return this.http.get<Tienda>(url);
   }
 
-  deleteTienda(id: string): Observable<Tienda> {
-    console.log("se elimina la tienda " + id);
-    return this.http.delete<Tienda>(`${this.tiendasURL}/${id}`, httpOptions);
+  getTiendaById(id: string) {
+    return this.http.get<Tiend>(`${url}${id}`);
   }
 
-  updateTienda(tienda: Tienda): Observable<Tienda> {
-    return this.http.put<Tienda>(`${this.tiendasURL}/${tienda._id}`, tienda, httpOptions);
+  deleteTienda(id: string) {
+    return this.http.delete<Tiend>(`${url}${id}`);
   }
 
-  addTienda(tienda: Tienda): Observable<Tienda> {
-    return this.http.post<Tienda>(this.tiendasURL, tienda, httpOptions);
+  updateTienda(tienda: Tiend, id: string) {
+    console.log('tienda service', tienda);
+    return this.http.put<Tiend>(`${url}${id}`, tienda);
   }
 
+  addTienda(tienda: Tiend) {
+    console.log(tienda);
+    return this.http.post<Tiend>(url, tienda);
+  }
 }
