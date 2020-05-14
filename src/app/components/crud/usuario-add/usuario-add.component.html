@@ -1,45 +1,5 @@
 <div class="container mt-5 mb-5">
-    <h3>Usuarios</h3>
-  
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Usuario</th>
-          <th scope="col">Nivel</th>
-          <th scope="col">Botones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let usuario of users; let i = index">
-          <th scope="row">{{ i }}</th>
-          <td>{{ usuario.username }}</td>
-          <td>{{ usuario.nivel }}</td>
-          <td>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                (click)="update(usuario._id)"
-              >
-                Editar
-              </button>
-              <button
-                type="button"
-                class="btn btn-secondary"
-                (click)="delete(usuario._id)"
-              >
-                Eliminar
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  <div class="container mt-5 mb-5">
-    <h3>Agregar Usuario</h3>
+    <h3>Editar {{ usern }}</h3>
     <form action="">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -83,10 +43,9 @@
       <button
         type="button"
         class="btn btn-primary btn-lg btn-block"
-        (click)="add(username.value, password.value, nivel.value)"
+        (click)="edit(username.value, password.value, nivel.value)"
       >
         Agregar
       </button>
     </form>
   </div>
-  

@@ -5,9 +5,9 @@ export interface Usuario {
 }
 
 export interface User {
-  _id: string;
+  _id?: string;
   username: string;
   password: string;
   nivel: number;
-  __v: number;
+  __v?: number;
 }
