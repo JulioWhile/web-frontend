@@ -1,38 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Usuario, User } from 'src/app/models/Usuario';
 
-import { Usuario } from 'src/app/models/Usuario';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json; charset=utf-8'
-  })
-}
+const usuariosURL = "http://localhost:3000/usuarios/";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsuariosService {
+  constructor(private http: HttpClient) {}
 
-  usuariosURL: string = "http://localhost:3000/tiendas";
-
-  constructor(private http: HttpClient) { }
-
-  getTiendas(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.usuariosURL, httpOptions);
+  getUsuarios() {
+    return this.http.get<Usuario>(usuariosURL);
   }
 
-  deleteTienda(idUsuario: number): Observable<Usuario> {
-    return this.http.delete<Usuario>(`${this.usuariosURL}/${idUsuario}`, httpOptions);
+  getUsuarioById(id: string) {
+    return this.http.get<User>(`${usuariosURL}${id}`);
   }
 
-  updateTienda(usr: Usuario): Observable<Usuario> {
-    return this.http.put<Usuario>(`${this.usuariosURL}/${usr._id}`, usr, httpOptions);
+  deleteUsuario(id: string) {
+    return this.http.delete<User>(`${usuariosURL}${id}`);
   }
 
-  addTienda(usr: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.usuariosURL, usr, httpOptions);
+  updateUsuario(usuario: User, id: string) {
+    console.log('usuario service', usuario);
+    return this.http.put<User>(`${usuariosURL}${id}`, usuario);
   }
 
+  addUsuario(usuario: User) {
+    console.log(usuario);
+    return this.http.post<User>(usuariosURL, usuario);
+  }
 }

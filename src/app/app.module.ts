@@ -12,6 +12,7 @@ import { CrudComputadorasComponent } from './components/crud/crud-computadoras/c
 import { CrudUsuariosComponent } from './components/crud/crud-usuarios/crud-usuarios.component';
 import { ComputadoraItemComponent } from './components/crud/computadora-item/computadora-item.component';
 import { TiendaAddComponent } from './components/crud/tienda-add/tienda-add.component';
+import { UsuarioAddComponent } from './components/crud/usuario-add/usuario-add.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TiendaAddComponent } from './components/crud/tienda-add/tienda-add.comp
     CrudUsuariosComponent,
     ComputadoraItemComponent,
     TiendaAddComponent,
+    UsuarioAddComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
