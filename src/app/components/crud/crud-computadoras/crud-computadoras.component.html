@@ -1,1 +1,215 @@
-<p>crud-computadoras works!</p>
+<div class="container mt-5 mb-5">
+  <h3>Computadoras Disponibles</h3>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Gabinete</th>
+        <th scope="col">Procesador</th>
+        <th scope="col">Tarjeta Video</th>
+        <th scope="col">Ram</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Botones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let computadora of computadoras; let i = index">
+        <th scope="row">{{ i }}</th>
+        <td>{{ computadora.gabinete }}</td>
+        <td>{{ computadora.procesador }}</td>
+        <td>{{ computadora.tarjetaVideo }}</td>
+        <td>{{ computadora.ram }}</td>
+        <td>{{ computadora.precio | currency }}</td>
+        <td>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="update(computadora._id)"
+            >
+              Editar
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="delete(computadora._id)"
+            >
+              Eliminar
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container mt-5 mb-5">
+  <h3>Agregar Tienda</h3>
+  <form action="">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #url
+        type="text"
+        class="form-control"
+        placeholder="Url Foto"
+        aria-label="Url Foto"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #gabinete
+        type="text"
+        class="form-control"
+        placeholder="Gabinete"
+        aria-label="Gabinete"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #ram
+        type="text"
+        class="form-control"
+        placeholder="Ram"
+        aria-label="Ram"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #procesador
+        type="text"
+        class="form-control"
+        placeholder="Procesador"
+        aria-label="Procesador"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #mobo
+        type="text"
+        class="form-control"
+        placeholder="Tarjeta Madre"
+        aria-label="Tarjeta Madre"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #fuente
+        type="text"
+        class="form-control"
+        placeholder="Fuente Poder"
+        aria-label="Fuente Poder"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #refrigeracion
+        type="text"
+        class="form-control"
+        placeholder="Refrigeracion"
+        aria-label="Refrigeracion"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #precio
+        type="text"
+        class="form-control"
+        placeholder="Precio"
+        aria-label="Precio"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #video
+        type="text"
+        class="form-control"
+        placeholder="Tarjeta Video"
+        aria-label="Tarjeta Video"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #hdd
+        type="text"
+        class="form-control"
+        placeholder="HDD"
+        aria-label="HDD"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        #ssd
+        type="text"
+        class="form-control"
+        placeholder="SSD"
+        aria-label="SSD"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary btn-lg btn-block"
+      (click)="
+        add(
+          url.value,
+          gabinete.value,
+          ram.value,
+          procesador.value,
+          mobo.value,
+          fuente.value,
+          refrigeracion.value,
+          precio.value,
+          video.value,
+          hdd.value,
+          ssd.value
+        )
+      "
+    >
+      Agregar
+    </button>
+  </form>
+</div>

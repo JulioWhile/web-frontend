@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Computadora } from '../models/Computadora';
+import { Computadora, Compus } from '../models/Computadora';
 
 
 const url = 'http://localhost:3000/computadora/';
@@ -17,17 +17,18 @@ export class ComputadorasService {
   }
 
   getComputadoraById(id: string) {
-    return this.http.get(`${url}${id}`);
+    return this.http.get<Compus>(`${url}${id}`);
   }
 
-  postComputadoras() {
-    return this.http.post(`${url}`, {
-    });
+  postComputadoras(computadora: Compus) {
+    return this.http.post(`${url}`, computadora);
   }
 
-  putComputadoras(id: string) {
-    return this.http.put(`${url}${id}`, {
-      id
-    });
+  deleteComputadora(id: string) {
+    return this.http.delete<Compus>(`${url}${id}`);
+  }
+
+  updateComputadora(computadora: Compus, id: string) {
+    return this.http.put<Compus>(`${url}${id}`, computadora);
   }
 }

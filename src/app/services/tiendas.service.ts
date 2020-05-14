@@ -24,7 +24,6 @@ export class TiendasService {
   }
 
   updateTienda(tienda: Tiend, id: string) {
-    console.log('tienda service', tienda);
     return this.http.put<Tiend>(`${url}${id}`, tienda);
   }
 

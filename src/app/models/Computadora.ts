@@ -5,7 +5,7 @@ export interface Computadora {
 }
 
 export interface Compus {
-  _id: string;
+  _id?: string;
   imagen: string;
   gabinete: string;
   ram: string;
@@ -17,5 +17,5 @@ export interface Compus {
   hdd?: string;
   ssd?: string;
   precio: number;
-  __v: number;
+  __v?: number;
 }

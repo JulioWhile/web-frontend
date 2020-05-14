@@ -55,7 +55,8 @@ export class CrudTiendasComponent implements OnInit {
     this.tiendas = [];
 
     this.tiendaService.getTiendas().subscribe((tienda) => {
-      tienda.tiendas.forEach((element) => {
+      console.log(tienda);
+      tienda.tiendas.forEach(element => {
         this.tiendas.push(element);
       });
     });
