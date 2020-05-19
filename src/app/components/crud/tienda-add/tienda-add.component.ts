@@ -11,6 +11,8 @@ import { Tiend } from 'src/app/models/Tienda';
 export class TiendaAddComponent implements OnInit {
   idTienda: string;
   nombreTienda: string;
+  linkFoto: string;
+  locacion: string;
 
   constructor(private router: Router, private tiendaService: TiendasService) {}
 
@@ -45,6 +47,8 @@ export class TiendaAddComponent implements OnInit {
     this.tiendaService.getTiendaById(id).subscribe(
       (res) => {
         this.nombreTienda = res.nombre;
+        this.linkFoto = res.logo;
+        this.locacion = res.ubicacion;
       },
       (err) => {
         console.log(err);
