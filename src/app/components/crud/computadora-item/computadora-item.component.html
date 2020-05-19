@@ -11,6 +11,7 @@
         class="form-control"
         placeholder="Url Foto"
         aria-label="Url Foto"
+        [value]="linkImagen"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -24,6 +25,7 @@
         class="form-control"
         placeholder="Gabinete"
         aria-label="Gabinete"
+        [value]="nombreGabinete"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -37,6 +39,7 @@
         class="form-control"
         placeholder="Ram"
         aria-label="Ram"
+        [value]="ramComputadora"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -50,6 +53,7 @@
         class="form-control"
         placeholder="Procesador"
         aria-label="Procesador"
+        [value]="procesadorComputadora"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -63,6 +67,7 @@
         class="form-control"
         placeholder="Tarjeta Madre"
         aria-label="Tarjeta Madre"
+        [value]="tarjetaMadreComputadora"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -76,6 +81,7 @@
         class="form-control"
         placeholder="Fuente Poder"
         aria-label="Fuente Poder"
+        [value]="fuenteComputadora"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -89,6 +95,7 @@
         class="form-control"
         placeholder="Refrigeracion"
         aria-label="Refrigeracion"
+        [value]="refrigeracionComputadora" 
         aria-describedby="basic-addon1"
       />
     </div>
@@ -102,6 +109,7 @@
         class="form-control"
         placeholder="Precio"
         aria-label="Precio"
+        [value]="precioComputadora"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -115,6 +123,7 @@
         class="form-control"
         placeholder="Tarjeta Video"
         aria-label="Tarjeta Video"
+        [value]="tarjetaVideoComputadora"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -128,6 +137,7 @@
         class="form-control"
         placeholder="HDD"
         aria-label="HDD"
+        [value]="hddComputadora"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -141,6 +151,7 @@
         class="form-control"
         placeholder="SSD"
         aria-label="SSD"
+        [value]="ssdComputadora"
         aria-describedby="basic-addon1"
       />
     </div>
@@ -163,7 +174,7 @@
         )
       "
     >
-      Agregar
+      Editar
     </button>
   </form>
 </div>

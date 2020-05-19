@@ -25,12 +25,10 @@ export class UsuariosService {
   }
 
   updateUsuario(usuario: User, id: string) {
-    console.log('usuario service', usuario);
     return this.http.put<User>(`${usuariosURL}${id}`, usuario);
   }
 
   addUsuario(usuario: User) {
-    console.log(usuario);
     return this.http.post<User>(usuariosURL, usuario);
   }
 }

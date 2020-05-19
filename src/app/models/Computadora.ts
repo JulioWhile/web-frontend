@@ -13,9 +13,9 @@ export interface Compus {
   tarjetaMadre: string;
   fuente: string;
   refrigeracion: string;
-  tarjetaVideo: string;
+  precio: number;
+  tarjetaVideo?: string;
   hdd?: string;
   ssd?: string;
-  precio: number;
   __v?: number;
 }
