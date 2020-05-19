@@ -17,11 +17,11 @@ export class CrudUsuariosComponent implements OnInit {
     this.getUsuarios();
   }
 
-  add(username: string, password: string, nivel: number) {
+  add(name: string, email: string, nivel: number) {
     let usuario: User = {
-      username,
-      password,
-      nivel: nivel,
+      name,
+      email,
+      nivel,
     };
     this.usuariosService.addUsuario(usuario).subscribe(
       (res) => {

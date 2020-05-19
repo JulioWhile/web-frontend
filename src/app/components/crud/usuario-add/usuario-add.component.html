@@ -1,16 +1,17 @@
 <div class="container mt-5 mb-5">
-    <h3>Editar {{ usern }}</h3>
+    <h3>Editar {{ nombreUsuario }}</h3>
     <form action="">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">@</span>
         </div>
         <input
-          #username
+          #name
           type="text"
           class="form-control"
-          placeholder="Usuario"
-          aria-label="Usuario"
+          placeholder="Nombre Usuario"
+          aria-label="Nombre Usuario"
+          [value]="nombreUsuario" 
           aria-describedby="basic-addon1"
         />
       </div>
@@ -19,11 +20,12 @@
           <span class="input-group-text" id="basic-addon1">@</span>
         </div>
         <input
-          #password
-          type="password"
+          #email
+          type="email"
           class="form-control"
-          placeholder="Contraseña"
-          aria-label="Contraseña"
+          placeholder="Email"
+          aria-label="Email"
+          [value]="correoUsuario"
           aria-describedby="basic-addon1"
         />
       </div>
@@ -37,13 +39,14 @@
           class="form-control"
           placeholder="Nivel"
           aria-label="Nivel"
+          [value]="nivelUsuario"
           aria-describedby="basic-addon1"
         />
       </div>
       <button
         type="button"
         class="btn btn-primary btn-lg btn-block"
-        (click)="edit(username.value, password.value, nivel.value)"
+        (click)="edit(name.value, email.value, nivel.value)"
       >
         Agregar
       </button>

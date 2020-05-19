@@ -10,7 +10,9 @@ import { User } from 'src/app/models/Usuario';
 })
 export class UsuarioAddComponent implements OnInit {
   idUsuario: string;
-  usern: string;
+  nombreUsuario: string;
+  correoUsuario: string;
+  nivelUsuario: number;
 
   constructor(private router: Router, private usuariosService: UsuariosService) { }
 
@@ -19,10 +21,10 @@ export class UsuarioAddComponent implements OnInit {
     this.getUsernameById(this.idUsuario);
   }
 
-  edit(username: string, password: string, nivel: number) {
+  edit(name: string, email: string, nivel: number) {
     let usuario: User = {
-      username,
-      password,
+      name,
+      email,
       nivel,
     };
     this.usuariosService.updateUsuario(usuario, this.idUsuario).subscribe(
@@ -44,8 +46,9 @@ export class UsuarioAddComponent implements OnInit {
   getUsernameById(id: string) {
     this.usuariosService.getUsuarioById(id).subscribe(
       (res) => {
-        console.log("esto es un res", res);
-        this.usern = res.username;
+        this.nombreUsuario = res.name;
+        this.correoUsuario = res.email;
+        this.nivelUsuario = res.nivel;
       },
       (err) => {
         console.log(err);

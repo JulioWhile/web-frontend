@@ -6,8 +6,8 @@ export interface Usuario {
 
 export interface User {
   _id?: string;
-  username: string;
-  password: string;
+  name: string;
+  email: string;
   nivel: number;
   __v?: number;
 }
